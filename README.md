@@ -14,7 +14,7 @@ The example Dockerfile for Alpine Linux converts a collection of Jupyter noteboo
 # Base image versions
 ARG NOTEBOOK_VERSION=latest
 ARG PYTHON_VERSION=3.8
-ARG ALPINE_VERSION=3.12
+ARG ALPINE_VERSION=3.11
 
 # Jupyter notebook image is used as the builder
 FROM jupyter/base-notebook:${NOTEBOOK_VERSION} AS builder
@@ -67,13 +67,13 @@ Note: This example was derived from the [Dockerfile](https://github.com/Logiqx/w
 To build a custom image for a specific version of the Python or Alpine Linux use the following syntax:
 
 ```
-docker image build --build-arg PYTHON_VERSION=3.8 . -t python-bs4:3.8-alpine3.12
+docker image build --build-arg PYTHON_VERSION=3.8 . -t python-bs4:3.8-alpine3.11
 ```
 
 You can provide overrides for the following:
 
 - PYTHON_VERSION - default of 3.8
-- ALPINE_VERSION - default of 3.12
+- ALPINE_VERSION - default of 3.11
 
 #### Debian Slim
 
