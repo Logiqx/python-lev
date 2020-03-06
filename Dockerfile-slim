@@ -1,0 +1,14 @@
+ARG PYTHON_VERSION=3.8
+ARG DEBIAN_VERSION=buster
+
+FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION} AS builder
+
+RUN apt-get update
+RUN apt-get install -y gcc
+
+RUN pip install --user --no-cache-dir python-Levenshtein==0.12.*
+
+FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}
+
+COPY --from=builder /root/.local/lib/python3.8/site-packages/ \
+	/usr/local/lib/python3.8/site-packages/
