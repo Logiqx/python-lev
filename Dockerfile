@@ -7,6 +7,8 @@ RUN apk add --no-cache g++
 
 RUN pip install --user --no-cache-dir python-Levenshtein==0.12.*
 
+RUN chmod 755 /root/.local/lib/*/site-packages
+
 FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION}
 
 COPY --from=builder /root/.local/lib/ /usr/local/lib/
